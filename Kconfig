@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config SOFT_REBOOT
+	tristate "Soft Reboot - Userspace Reboot for Android"
+	default m
+	help
+	  Loadable kernel module that triggers userspace-only reboot.
+	  Kills all userspace processes except init, causing Android
+	  to restart zygote and system_server without kernel reboot.
+	  
+	  Useful for ROMs that don't natively support userspace reboot.
+	  
+	  Used for KernelSU/Magisk/LSPosed module injection.
+	  
+	  Usage: echo 1 > /dev/soft_reboot
+	  
+	  To compile as a module, choose M here.
